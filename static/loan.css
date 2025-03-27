@@ -1,0 +1,151 @@
+body {
+  background-color: #f5f7fa; /* Light grayish-blue */
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header .headings h1 {
+  margin: 0;
+  margin-right: 30px;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header .afyaLogo a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+header .afyaLogo img {
+  height: 8 0px;
+  width: 70px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+header .afyaLogo a:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+header .afyaLogo a:hover img {
+  opacity: 0.8;
+}
+
+header .afyaLogo a:active {
+  transform: scale(0.95);
+}
+header .afyaSacco {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loanForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  padding: 20px;
+  padding-bottom: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px #668d6e;
+  overflow: hidden;
+}
+
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.userInput {
+  padding: 8px;
+  font-size: 0.875rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.userInput:hover {
+  background-color: rgba(176, 172, 172, 0.041);
+}
+
+/* Calculate Button takes full width */
+button.calculate {
+  align-self: center;
+  padding: 10px;
+  background: #668d6e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgb(8, 8, 8);
+}
+
+button.calculate:hover {
+  background: #1e3823;
+}
+
+.shortMessage {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-weight: bold;
+}
+.shortMessage p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+header .userGuide {
+  display: inline-block;
+  color: white;
+  background-color: #668d6e;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px;
+}
+header .userGuide:hover {
+  background-color: #1e3823;
+}
+@media all and (max-width: 480px) and (orientation: portrait) {
+  .loanForm {
+    grid-template-columns: 1fr !important;
+  }
+  header {
+    justify-content: center !important;
+  }
+  header .headings h1 {
+    margin-right: 20px !important;
+    font-size: 0.7rem !important;
+  }
+  header .afyaName {
+    font-size: 1rem !important;
+  }
+  .loanForm .inputLabel {
+    font-size: 0.7rem;
+  }
+  .loanForm .userInput {
+    font-size: 0.7rem;
+  }
+  header .userGuide {
+    padding: 2px;
+  }
+}

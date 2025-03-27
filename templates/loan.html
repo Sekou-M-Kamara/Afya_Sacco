@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Loan Amortization Calculator - Calculate your loan payments easily."
+    />
+    <meta
+      name="keywords"
+      content="loan calculator, mortgage calculator, amortization, finance"
+    />
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loan.css')}}" />
+  </head>
+  <body>
+    <header>
+      <div class="headings">
+        <h1>Loan</h1>
+        <h1>Amortization</h1>
+        <h1>Calculator</h1>
+        <a href="/userGuide" class="userGuide">User Guide</a>
+      </div>
+      <div class="afyaSacco">
+        <h2 class="afyaName">Afya Sacco Society Limited</h2>
+      </div>
+      <div class="afyaLogo">
+        <a href="https://sonysugar.kikosi.com/">
+          <img src="/static/AfyaSacco.jpg" alt="Afya Sacco Logo" />
+        </a>
+      </div>
+    </header>
+    <section>
+      <form class="loanForm" action="/calculate" method="POST">
+        <label for="" class="inputLabel">
+          Loan Type:
+          <select class="userInput" name="loanType" id="loanType" required>
+            <option value="Amortized">Amortized</option>
+            <option value="Interest_only">Interest Only</option>
+            <option value="Flat_interest">Flat Interest</option>
+            <option value="Partially_amortized">Partially Amortized</option>
+          </select>
+        </label>
+        <label for="" class="inputLabel">
+          Ballon Payment:
+          <input
+            class="userInput"
+            name="ifPartiallyAmortized"
+            type="number"
+            placeholder="maturity payment"
+            min="0"
+            value="{{defaultPartial}}"
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Repayment Timeframe:
+          <select
+            class="userInput"
+            name="repaymentTimeframe"
+            id="repaymentTimeframe"
+            required
+          >
+            <option value="Annually">Annually</option>
+            <option value="Semi_annually">Semi-Annually</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Bimonthly">Bimonthly</option>
+            <option value="Monthly" selected>Monthly</option>
+          </select>
+        </label>
+        <label for="" class="inputLabel">
+          Loan Term:
+          <input
+            type="number"
+            class="userInput"
+            required
+            placeholder="# of months"
+            name="timeHorizon"
+            id="timeHorizon"
+            min="1"
+            value="{{defaultTime}}"
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Interest Rate:
+          <input
+            type="number"
+            class="userInput"
+            name="interestRate"
+            id="interestRate"
+            required
+            placeholder="%|annual interest rate"
+            min="0"
+            value="{{defaultInterest}}"
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Interest Type:
+          <select
+            class="userInput"
+            name="interestType"
+            id="interestType"
+            required
+          >
+            <option value="Effective" selected>Effective</option>
+            <option value="Nominal">Nominal</option>
+          </select>
+        </label>
+        <label for="" class="inputLabel">
+          Repayment Description:
+          <select
+            class="userInput"
+            name="repaymentDescription"
+            id="repaymentDescription"
+            required
+          >
+            <option value="Level" selected>level</option>
+            <option value="Increasing">Increasing</option>
+            <option value="Decreasing">Decreasing</option>
+          </select>
+        </label>
+        <label for="" class="inputLabel">
+          By:
+          <input
+            type="number"
+            class="userInput"
+            placeholder="if increasing or decreasing"
+            name="by"
+            min="0"
+            value="{{defaultBy}}"
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Amount Borrowing:
+          <input
+            name="amountBorrowed"
+            type="number"
+            class="userInput"
+            required
+            min="0"
+            placeholder="amount to be borrowed"
+            value="{{defaultAmount}}"
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Email:
+          <input
+            type="email"
+            class="userInput"
+            placeholder="Your email address"
+            name="emailAddress"
+            value="{{defaultEmail}}"
+            required
+          />
+        </label>
+        <label for="" class="inputLabel">
+          Start Date:
+          <input
+            type="date"
+            class="userInput"
+            name="startDate"
+            required
+            value="{{defaultDate}}"
+          />
+        </label>
+        <button type="submit" class="calculate">Calculate</button>
+      </form>
+    </section>
+    <footer class="shortMessage">
+      <p>
+        Experience the flexibility you never had! This Loan Amortization
+        Calculator puts you in control. Calculate, analyze, and make sound
+        financial decisions.
+      </p>
+    </footer>
+  </body>
+</html>

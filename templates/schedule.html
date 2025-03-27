@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Shedule</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='schedule.css')}}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="metadata">
+        <h1>Afya Sacco Society Limited</h1>
+        <h2>Loan Schedule</h2>
+        <p>
+          <strong>Loan Type:</strong> {%if session["loanType"] !=
+          "Partially_amortized" %} {{loanType}} {% else %} {{loanType}}
+          <strong>Maturity Payment:</strong> {{ifPartial}} {% endif %}
+        </p>
+        <p>
+          <strong>Amount Borrowed:</strong> {{ "{:,.2f}".format(amountBorrowed)
+          }}
+        </p>
+        <p><strong>Number of months:</strong> {{numberOfMonths}}</p>
+        <p>
+          <strong>Interest Rate(%):</strong> {{ interestRate }}
+          <strong>Type:</strong>
+          {% if loanType != "Flat_interest" %} {{ interestType }} {% else %}
+          Nominal {% endif %}
+        </p>
+        {% if session["loanType"] != "Interest_only" %}
+        <p>
+          <strong>Repayment Description:</strong>
+          {% if loanType == "Flat_interest" %} Level {% else %} {{
+          repaymentDescription }} {% if repaymentDescription != "Level" %}
+          <strong>By:</strong> {{ by }} {% endif %} {% endif %}
+        </p>
+        {% endif %}
+        <p><strong>Repayment Timeframe:</strong> {{repaymentTimeframe}}</p>
+        <p><strong>Start Date:</strong> {{startDate}}</p>
+        <p id="totalInterest">
+          <strong>Total Interest:</strong> {{"{:,.2f}".format(totalInterest)}}
+        </p>
+      </div>
+    </header>
+    <div class="downprint">
+      <ul class="button-list">
+        <li><a href="/download" id="download">Download</a></li>
+        <li>
+          <a id="print" href="#" onclick="window.print(); return false;"
+            >Print</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="table_container">{{scheduleTable| safe}}</div>
+    <footer class="uphome">
+      <ul>
+        <li><a href="\">Home</a></li>
+        <li><a href="#">Up page</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Amortization Calculator - User Guide</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .note {
+        background: #fffae6;
+        padding: 10px;
+        border-left: 5px solid #f4b400;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Loan Amortization Calculator - User Guide</h1>
+      <p>
+        The Loan Amortization Calculator helps users understand loan repayment
+        structures, interest calculations, and financial implications. By
+        entering loan details, users can analyze different repayment scenarios
+        and their impact on total interest.
+      </p>
+
+      <h2>1. Loan Type</h2>
+      <p>The calculator supports three types of loans:</p>
+      <ul>
+        <li>
+          <strong>Amortized Loan (Reducing Balance)</strong>: Regular payments
+          consisting of principal and interest. The principal portion increases
+          over time while interest decreases, ensuring full repayment.
+        </li>
+        <li>
+          <strong>Interest-Only Loan</strong>: Only interest payments are made
+          during a specified period. The full principal is due at the end of the
+          term.
+        </li>
+        <li>
+          <strong>Partially Amortized Loan</strong>: Regular payments reduce the
+          principal, but a portion remains unpaid. This remaining balance
+          (balloon payment) is due at the end of the loan.
+        </li>
+      </ul>
+      <div class="note">
+        Note: If a loan is partially amortized, a balloon payment is required;
+        otherwise, it defaults to zero.
+      </div>
+
+      <h2>2. Repayment Timeframe</h2>
+      <p>Determines how often loan payments are made per year:</p>
+      <ul>
+        <li>Annually (once per year)</li>
+        <li>Semi-Annually (twice per year)</li>
+        <li>Quarterly (four times per year)</li>
+        <li>Bimonthly (six times per year)</li>
+        <li>Monthly (twelve times per year - default)</li>
+      </ul>
+
+      <h2>3. Interest Rate</h2>
+      <p>The cost of borrowing, expressed as a percentage:</p>
+      <ul>
+        <li>
+          <strong>Effective Interest Rate (default)</strong>: Adjusted for
+          compounding periods.
+        </li>
+        <li>
+          <strong>Nominal Interest Rate</strong>: The stated rate, not adjusted
+          for compounding.
+        </li>
+      </ul>
+
+      <h2>4. Repayment Description</h2>
+      <p>Determines how the loan principal is repaid:</p>
+      <ul>
+        <li>
+          <strong>Level (Default)</strong>: Fixed payments throughout the loan
+          term.
+        </li>
+        <li>
+          <strong>Increasing</strong>: Starts with a lower payment that
+          gradually increases.
+        </li>
+        <li>
+          <strong>Decreasing</strong>: Starts with a higher payment that
+          gradually decreases.
+        </li>
+      </ul>
+      <div class="note">
+        Note: For increasing or decreasing repayments, specify the adjustment
+        amount using the "By" input field; otherwise, it defaults to zero.
+      </div>
+
+      <h2>5. Amount Borrowed</h2>
+      <p>
+        The total loan amount requested, which serves as the principal for
+        interest calculations.
+      </p>
+
+      <h2>6. Loan Term</h2>
+      <p>
+        The duration of the loan, which represents how long it will last. It is
+        measured in months.
+      </p>
+
+      <h2>7. Start Date</h2>
+      <p>
+        The date the loan is initiated, used to schedule repayments and
+        calculate interest accrual.
+      </p>
+
+      <h2>8. Client Name</h2>
+      <p>
+        A field for businesses or individuals to personalize their loan schedule
+        report. The entered name appears on the printed report.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        Understanding loan inputs is crucial for financial planning. This
+        calculator helps borrowers and lenders compare different loan structures
+        and repayment plans to make informed financial decisions.
+      </p>
+    </div>
+  </body>
+</html>
