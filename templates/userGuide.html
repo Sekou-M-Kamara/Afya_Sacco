@@ -46,7 +46,7 @@
       </p>
 
       <h2>1. Loan Type</h2>
-      <p>The calculator supports three types of loans:</p>
+      <p>The calculator supports four types of loans:</p>
       <ul>
         <li>
           <strong>Amortized Loan (Reducing Balance)</strong>: Regular payments
@@ -63,11 +63,25 @@
           principal, but a portion remains unpaid. This remaining balance
           (balloon payment) is due at the end of the loan.
         </li>
+        <div class="note">
+          Note: For partially amortized loans, if the loan is partially
+          amortized, the balloon payment must be specified; otherwise, it is
+          defaulted to zero.
+        </div>
+        <li>
+          <strong>Flat Interest Rate Loan</strong>: This loan type has constant
+          interest and principal repayments. The interest is calculated as a
+          percentage of the amount borrowed, divided by the loan duration, while
+          the capital repayment is the amount borrowed divided by the loan
+          duration.
+        </li>
+        <div class="note">
+          Note: For flat interest rate loans, the repayment description is set
+          to "Level" by default, and the interest type is set to "Nominal" by
+          default. These default values are not influenced by their
+          corresponding input cells.
+        </div>
       </ul>
-      <div class="note">
-        Note: If a loan is partially amortized, a balloon payment is required;
-        otherwise, it defaults to zero.
-      </div>
 
       <h2>2. Repayment Timeframe</h2>
       <p>Determines how often loan payments are made per year:</p>
@@ -110,7 +124,8 @@
       </ul>
       <div class="note">
         Note: For increasing or decreasing repayments, specify the adjustment
-        amount using the "By" input field; otherwise, it defaults to zero.
+        amount using the "By" input field; otherwise, it defaults to zero. Flat
+        interest rate loans do not require this field.
       </div>
 
       <h2>5. Amount Borrowed</h2>
