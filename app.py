@@ -156,8 +156,8 @@ def download():
                     "Value": [
                         session.get("emailAddress", "N/A"),
                         session.get("loanType", "N/A"),
-                        f"{float(session.get('amountBorrowed', "N/A")):,.2f}",
-                        f"{float(session.get('interestRate', "N/A")):.2f}%",
+                        f"{float(session.get('amountBorrowed', 0)):,.2f}",
+                        f"{float(session.get('interestRate', 0)):.2f}%",
                         session.get("interestType", "N/A"),
                         session.get("repaymentDescription", "N/A"),
                         session.get("repaymentTimeframe", "N/A"),
