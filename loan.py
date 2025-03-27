@@ -117,14 +117,14 @@ def loanAmortizer(loan_type,
             period_length, (amount_borrowed / period_length))
         principal_repay_arr = np.insert(principal_repay_arr, 0, 0)
 
-        interestpay_arr = np.full(
-            period_length, (amount_borrowed * period_interest))
-        interestpay_arr = np.insert(interestpay_arr, 0, 0)
-
-        repayment_arr = interestpay_arr + principal_repay_arr
-
         balance_arr = np.full((period_length + 1), amount_borrowed)
         balance_arr = balance_arr - np.cumsum(principal_repay_arr)
+
+        interestpay_arr = np.zeros((period_length + 1))
+        interestpay_arr[1:] = period_interest * \
+            balance_arr[0:(len(balance_arr)-1)]
+
+        repayment_arr = interestpay_arr + principal_repay_arr
 
     repayment_arr = np.round(repayment_arr, 2)
     balance_arr = np.round(balance_arr, 2)
@@ -147,21 +147,18 @@ def loanAmortizer(loan_type,
         "principal_repayment":  principal_repay_arr,
         "balance":  balance_arr
     }
+    def correction_test():
+        discount_factor_arr = np.array([(1 + period_interest) ** (-i)
+                                        for i in range(1, (1+period_length))])
+        pv_cashflow_arr = repayment_arr[1:] * discount_factor_arr
+        pv_cashflow = sum(pv_cashflow_arr)
+        return (pv_cashflow)
 
-    if loan_type != "Flat_interest":
-        def correction_test():
-            discount_factor_arr = np.array([(1 + period_interest) ** (-i)
-                                            for i in range(1, (1+period_length))])
-            pv_cashflow_arr = repayment_arr[1:] * discount_factor_arr
-            pv_cashflow = sum(pv_cashflow_arr)
-            return (pv_cashflow)
-
-        if round(correction_test()) == amount_borrowed and round(abs(balance_arr[-1])) == 0:
-            loan_sch_dframe = pd.DataFrame(loan_sch_dict)
-        else:
-            raise Exception
-    else:
+    if round(correction_test()) == amount_borrowed and round(abs(balance_arr[-1])) == 0:
         loan_sch_dframe = pd.DataFrame(loan_sch_dict)
+    else:
+      raise Exception(
+                    "The present value of the future payments is not equivalent to the amount borrowed.\nServer side error!")
 
     # loan_sch_dframe = loan_sch_dframe.loc[1:]
     # loan_sch_dframe = loan_sch_dframe[[
