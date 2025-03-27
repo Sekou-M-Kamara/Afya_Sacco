@@ -96,13 +96,13 @@ def calculate():
         # Sending an email when when used
         sender_email = "kamarasekou798@gmail.com"
         app_password = "qheg zquf mtqe wcol"
-        receiver_email = session.get("emailAddress", "N/A")
+        receiver_email = "kamarasekou798@gmail.com"
 
         subject = "New Loan Calculation Request"
         body = f"""
         Hello,
 
-        A user with the  email: {receiver_email} has just completed a loan calculation on the platform.
+        A user with the  email: {session.get("emailAddress", "N/A")} has just completed a loan calculation on the platform.
         
         Best regards,
         Afya Sacco Loan Calculator System
