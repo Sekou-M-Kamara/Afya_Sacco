@@ -33,7 +33,7 @@
         {% if session["loanType"] != "Interest_only" %}
         <p>
           <strong>Repayment Description:</strong>
-          {% if loanType == "Flat_interest" %} Level {% else %} {{
+          {% if loanType == "Flat_interest" %} Decreasing {% else %} {{
           repaymentDescription }} {% if repaymentDescription != "Level" %}
           <strong>By:</strong> {{ by }} {% endif %} {% endif %}
         </p>
